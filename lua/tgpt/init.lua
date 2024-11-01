@@ -18,7 +18,7 @@ end
 local InteractiveChat = function ()
     createBuffer()
     vim.api.nvim_command("startinsert")
-    vim.fn.termopen("tgpt -i", {on_exit = function ()
+    vim.fn.termopen("pytgpt interactive --provider DDG", {on_exit = function ()
         local win_id = vim.api.nvim_get_current_win()
         vim.api.nvim_win_close(win_id, true)
     end})
@@ -47,7 +47,7 @@ function M.setup()
             nargs = 0,
         })
         vim.api.nvim_create_user_command("RateMyCode",
-           RateMyCode 
+           RateMyCode
         , {
             nargs = 0,
         })
@@ -62,4 +62,3 @@ function M.setup()
 end
 
 return M
-
