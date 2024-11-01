@@ -25,15 +25,17 @@ local InteractiveChat = function ()
 end
 
 local RateMyCode = function ()
-   local file = vim.api.nvim_buf_get_name(0)
-   local prompt = "cat " .. file .. " | tgpt 'Rate the code' "
+   -- local file = vim.api.nvim_buf_get_name(0)
+   -- local prompt = "cat " .. file .. " | tgpt 'Rate the code' "
+   local prompt = 'pytgpt generate --provider DDG "{{copied}} code를 한국어로 평가해 줘."'
    createBuffer()
    vim.fn.termopen(prompt)
 end
 
 local CheckForBugs = function ()
-   local file = vim.api.nvim_buf_get_name(0)
-   local prompt = "cat " .. file .. " | tgpt 'Check for bugs' "
+   -- local file = vim.api.nvim_buf_get_name(0)
+   -- local prompt = "cat " .. file .. " | tgpt 'Check for bugs' "
+   local prompt = 'pytgpt generate --provider DDG "{{copied}} code에 버그가 있는지를 한국어로 평가해 줘."'
    createBuffer()
    vim.fn.termopen(prompt)
 end
@@ -46,12 +48,12 @@ function M.setup()
         , {
             nargs = 0,
         })
-        vim.api.nvim_create_user_command("RateMyCode",
+        vim.api.nvim_create_user_command("Ratecode",
            RateMyCode
         , {
             nargs = 0,
         })
-        vim.api.nvim_create_user_command("CheckForBugs",
+        vim.api.nvim_create_user_command("Checkbug",
             CheckForBugs
         , {
             nargs = 0,
