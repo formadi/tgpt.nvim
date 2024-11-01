@@ -1,8 +1,8 @@
 local M = {}
 
 local createBuffer = function ()
-    WIDTH = vim.api.nvim_get_option("columns")
-    HEIGHT = vim.api.nvim_get_option("lines")
+    WIDTH = vim.api.nvim_get_option_value("columns",{})
+    HEIGHT = vim.api.nvim_get_option_value("lines", {})
     vim.api.nvim_open_win(vim.api.nvim_create_buf(false, true), true, {
             relative = 'editor',
             width = math.floor(WIDTH / 5),
