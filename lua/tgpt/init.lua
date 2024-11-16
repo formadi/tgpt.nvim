@@ -42,7 +42,7 @@ end
 
 
 function M.setup()
-    local result = vim.fn.executable("tgpt")
+    local result = vim.fn.executable("Tgpt")
     if result == 1 then
         vim.api.nvim_create_user_command("Chat", InteractiveChat
         , {
